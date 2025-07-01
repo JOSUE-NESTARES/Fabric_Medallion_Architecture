@@ -1,0 +1,103 @@
+{
+    "name": "PIPE_BRICKS_VISTA_RS_EXTRACT_DEV_001",
+    "objectId": "f3ac59a5-255c-4fa1-8fee-a1f266649911",
+    "properties": {
+        "activities": [
+            {
+                "name": "EXTRACT_ADLS_RAW_BRICK_VISTA",
+                "type": "Copy",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "typeProperties": {
+                    "source": {
+                        "type": "DelimitedTextSource",
+                        "storeSettings": {
+                            "type": "AzureBlobFSReadSettings",
+                            "recursive": true,
+                            "enablePartitionDiscovery": false
+                        },
+                        "formatSettings": {
+                            "type": "DelimitedTextReadSettings",
+                            "skipLineCount": 0
+                        },
+                        "datasetSettings": {
+                            "annotations": [],
+                            "type": "DelimitedText",
+                            "typeProperties": {
+                                "location": {
+                                    "type": "AzureBlobFSLocation",
+                                    "folderPath": "raw_data",
+                                    "fileSystem": "realstate"
+                                },
+                                "columnDelimiter": ",",
+                                "rowDelimiter": "\n",
+                                "escapeChar": "\\",
+                                "firstRowAsHeader": true,
+                                "quoteChar": "\""
+                            },
+                            "schema": [],
+                            "externalReferences": {
+                                "connection": "dc3427f2-4760-48c8-b558-fcf5b3c63728"
+                            }
+                        }
+                    },
+                    "sink": {
+                        "type": "DelimitedTextSink",
+                        "storeSettings": {
+                            "type": "LakehouseWriteSettings"
+                        },
+                        "formatSettings": {
+                            "type": "DelimitedTextWriteSettings",
+                            "fileExtension": ".txt"
+                        },
+                        "datasetSettings": {
+                            "annotations": [],
+                            "linkedService": {
+                                "name": "LKH_BRICKVISTARS_DEV_001",
+                                "properties": {
+                                    "annotations": [],
+                                    "type": "Lakehouse",
+                                    "typeProperties": {
+                                        "workspaceId": "d7487493-5dd0-4ace-9524-0fd899995add",
+                                        "artifactId": "12ae1e97-ba4b-433e-a258-137953524d3a",
+                                        "rootFolder": "Files"
+                                    }
+                                }
+                            },
+                            "type": "DelimitedText",
+                            "typeProperties": {
+                                "location": {
+                                    "type": "LakehouseLocation",
+                                    "folderPath": "raw"
+                                },
+                                "columnDelimiter": ",",
+                                "rowDelimiter": "\n",
+                                "escapeChar": "\\",
+                                "firstRowAsHeader": true,
+                                "quoteChar": "\""
+                            },
+                            "schema": []
+                        }
+                    },
+                    "enableStaging": false,
+                    "translator": {
+                        "type": "TabularTranslator",
+                        "typeConversion": true,
+                        "typeConversionSettings": {
+                            "allowDataTruncation": true,
+                            "treatBooleanAsNumber": false
+                        }
+                    }
+                }
+            }
+        ],
+        "lastModifiedByObjectId": "07c1debe-7216-407c-8b81-f5572820cda0",
+        "lastPublishTime": "2025-07-01T00:03:35Z"
+    }
+}

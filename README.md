@@ -12,7 +12,7 @@ Implementar una plataforma unificada de datos que integre información de ventas
 
 ## 📊 Arquitectura de la Solución
 
-![Arquitectura](ruta/a/tu/imagen/arquitectura.png)
+![Arquitectura](ruta/a/tu/imagen/arquitectura.JPG)
 
 ### Componentes:
 - **Origen de Datos:** Archivos CSV. El contenedor ADLS Gen2 no es posible compartirlo, por ello para efectos educativos trabajaremos con el CSV.
@@ -59,15 +59,16 @@ El pipeline de Fabric ejecuta diariamente los siguientes pasos:
 
 ```text
 📁 pipelines/
-   └─ pipe_bricks_vista.json
+   ├─ pipe_bricks_vista.json
+   └─ pipe_extract_adls.json
 📁 notebooks/
-   ├─ bronze_notebook.ipynb
-   ├─ silver_notebook.ipynb
-   └─ gold_notebook.ipynb
+   ├─ NTB_BRONZE_BRICKVISTA_DEV_001.ipynb
+   ├─ NTB_SILVER_BRICKVISTA_DEV_001.ipynb
+   └─ NTB_GOLD_BRICKVISTA_DEV_001.ipynb
 📁 sql/
-   └─ dwh_model.sql
+   └─ sp_TruncateGoldTables.sql
 📁 images/
-   ├─ arquitectura.png
+   ├─ arquitectura.JPG
    └─ pipeline.png
 📄 README.md
 
