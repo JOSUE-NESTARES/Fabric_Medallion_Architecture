@@ -57,17 +57,18 @@ El pipeline de Fabric ejecuta diariamente los siguientes pasos:
 
 ## 🧑‍💻 Contenido del Repositorio
 
+```text
 📁 pipelines/
-└─ *.json
+   └─ pipe_bricks_vista.json
 📁 notebooks/
-├─ bronze_notebook.ipynb
-├─ silver_notebook.ipynb
-└─ gold_notebook.ipynb
+   ├─ bronze_notebook.ipynb
+   ├─ silver_notebook.ipynb
+   └─ gold_notebook.ipynb
 📁 sql/
-├─ dwh_model.sql
+   └─ dwh_model.sql
 📁 images/
-├─ arquitectura.png
-└─ pipeline.png
+   ├─ arquitectura.png
+   └─ pipeline.png
 📄 README.md
 
 ---
