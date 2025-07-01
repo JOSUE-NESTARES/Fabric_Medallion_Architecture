@@ -12,7 +12,7 @@ Implementar una plataforma unificada de datos que integre información de ventas
 
 ## 📊 Arquitectura de la Solución
 
-![Arquitectura](ruta/a/tu/imagen/arquitectura.JPG)
+![Arquitectura](images/arquitectura.JPG)
 
 ### Componentes:
 - **Origen de Datos:** Archivos CSV. El contenedor ADLS Gen2 no es posible compartirlo, por ello para efectos educativos trabajaremos con el CSV.
@@ -35,7 +35,7 @@ El pipeline de Fabric ejecuta diariamente los siguientes pasos:
 5. Carga final al Data Warehouse
 6. Visualización automática en Power BI
 
-![Pipeline](ruta/a/tu/imagen/pipeline.png)
+![Pipeline](images/pipeline.png)
 
 ---
 
